@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Mastermind</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="ui-panel welcome ui-panel-padding__none" style="margin-bottom: 0">
+            <div class="button-wrapper">
+                <h1 class="ui-text-align__center">Welcome to Mastermind</h1>
+                <p class="clear" style="margin: 20px 0"></p>
+                <button class="ui-float__none" id="guestBtn">Play as guest</button>
+                <button class="ui-float__none cta" id="loginBtn">Login</button>
+                <button class="ui-float__none" id="registerBtn">Register</button>
+            </div>
+
+            <p class="clear"></p>
+        </div>
+
+        <div class="ui-panel login ui-panel-padding__none hidden" style="margin-bottom: 0">
+            <div class="button-wrapper">
+                <h1 class="ui-text-align__center">Login user</h1>
+                <p class="clear" style="margin: 20px 0"></p>
+                <form name="loginForm">
+                    <input autofocus id="test" required placeholder="Username" name="username" autocomplete="off" />
+                    <input required placeholder="Password" name="password" type="password" />
+                    <button class="ui-float__none" id="confirmLogin">Login</button>
+                    <button class="ui-float__none" id="backToWelcomeLogin" style="margin-top: 20px">Back</button>
+                </form>
+            </div>
+
+            <p class="clear"></p>
+        </div>
+
+        <div class="ui-panel register ui-panel-padding__none hidden" style="margin-bottom: 0">
+            <div class="button-wrapper">
+                <h1 class="ui-text-align__center">Register user</h1>
+                <p class="clear" style="margin: 20px 0"></p>
+                <form name="registerForm">
+                    <input autofocus required placeholder="Username" name="username" autocomplete="off" />
+                    <input required placeholder="Password" type="password" name="password" />
+                    <input required placeholder="Confirm password" type="password" name="confirmPassword" />
+
+                    <button class="ui-float__none" id="confirmRegister">Register</button>
+                    <button class="ui-float__none" id="backToWelcomeRegister" style="margin-top: 20px">Back</button>
+                </form>
+            </div>
+            <p class="clear"></p>
+        </div>
+
+        <div class="ui-panel ui-panel-medium-padding ui-header" style="margin-bottom: 0;padding: 0">
+            <h1 class="ui-text-align__center">Welcome to Mastermind</h1>
+            <p class="clear"></p>
+            <div class="ui-result-wrapper ui-float__left">
+                <div>User: <span class="js-username">Guest</span></div>
+                <div class="js-record-wrapper">Record: <span class="js-record">1-0</span></div>
+            </div>
+            <p class="clear"></p>
+        </div>
+
+        <div class="ui-panel css-js-main-panel loader ">
+            <div class="ui-box-wrapper ui-float__left ui-push-bottom">
+                <div id="solutionWrapper" class="ui-row hideAnswer">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+            </div>
+            <div class="ui-box-wrapper ui-float__right ui-push-bottom" id="gameHeader">
+                <div class="ui-row ">
+                    <button id="resetBtn" class="ui-start-again-btn js-reset-btn">Reset</button>
+                    <button id="logoutBtn" class="ui-start-again-btn js-reset-btn ui-float__left">Logout</button>
+                </div>
+            </div>
+
+            <p class="clear"></p>
+
+            <div id="leftPanel" class=" ui-box-wrapper ui-float__left">
+                <div class="ui-row css-active">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+            </div>
+
+            <div id="resultWrapper" class="ui-box-wrapper ui-push-bottom ui-float__right">
+                <div class="ui-row css-active">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+            </div>
+
+            <p class="clear"></p>
+
+            <div id="buttonsWrapper" class="ui-box-wrapper ui-float__left">
+                <div class="ui-row">
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                    <div class="ui-box"></div>
+                </div>
+            </div>
+
+            <div class="ui-box-wrapper ui-float__right">
+                <div>
+                    <div class="ui-circle ui-small-size red ui-float__left ui-push-right"></div>
+                    <div class="ui-float__left ui-font-weight__light">Correct logo, but at wrong position</div>
+                    <p class="clear"></p>
+                </div>
+                <div>
+                    <div class="ui-circle ui-small-size green ui-float__left ui-push-right"></div>
+                    <div class="ui-float__left ui-font-weight__light">Correct logo, correct position</div>
+                    <p class="clear"></p>
+                </div>
+            </div>
+            <p class="clear"></p>
+        </div>
+
+        <script type="module" src="loginModule/userHandle.js"></script>
+    </body>
+</html>
