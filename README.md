@@ -1,6 +1,6 @@
 # Mastermind game
 
-Mastermind game is JS based game implementing Singleton & Pub-sub patterns, ES6, Local storage, preloading images with promises.
+Mastermind game is a JS based game implementing Singleton & Pub-sub patterns, ES6, Local storage, preloading images with promises.
 
 Link to the game [Mastermind](https://milosmarkoni.github.io/Mastermind-game/).
 
